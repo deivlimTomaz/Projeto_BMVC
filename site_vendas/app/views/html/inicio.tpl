@@ -26,15 +26,15 @@
    </form>
 
    <section class="destaque">
-      <img src="/static/img/naturafoto1.png" alt="Duas mulheres sorrindo">
-      <div class"apresentacao-texto">
-         <h2> Beleza que faz bem</h2>
+      <img class="anim-item" src="/static/img/naturafoto1.png" alt="Duas mulheres sorrindo">
+      <div class="apresentacao-texto anim-item">
+         <h2>Beleza que faz bem</h2>
          <p>
             Conheça os produtos de cuidados com a pele, perfumaria e maquiagem feitos para valorizar o que há
             de mais bonito em você.
          </p>
 
-         <a href ="/produtos" class="botao">Conheça os produtos</a>
+         <a href="/produtos" class="botao">Conheça os produtos</a>
       </div>
    </section>
 </body>
