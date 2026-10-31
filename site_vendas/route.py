@@ -14,10 +14,6 @@ ctl = Application()
 def serve_static(filepath):
     return static_file(filepath, root='./app/static')
 
-@app.route('/inicio', methods=['GET'])
-def action_pagina():
-    return ctl.render('inicio')
-
 @app.route('/helper')
 def helper(info= None):
     return ctl.render('helper')
@@ -26,7 +22,10 @@ def helper(info= None):
 #-----------------------------------------------------------------------------
 # Suas rotas aqui:
 
-
+# Página inicial
+@app.route('/inicio', methods=['GET'])
+def action_pagina():
+    return ctl.render('inicio')
 
 #-----------------------------------------------------------------------------
 
