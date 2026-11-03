@@ -13,7 +13,7 @@ class Application(): # Organização de páginas
 
     def render(self,page):
        content = self.pages.get(page, self.helper)
-       return content()
+       return content() # self.inicio, self.produtos
 
     def helper(self):
         return template('app/views/html/helper')
