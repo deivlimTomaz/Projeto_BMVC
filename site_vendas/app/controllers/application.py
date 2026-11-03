@@ -5,6 +5,7 @@ class Application(): # Organização de páginas
 
     def __init__(self):
         self.pages = {
+            'helper': self.helper,
             'inicio': self.inicio,
             'produtos': self.produtos
         }
@@ -13,7 +14,6 @@ class Application(): # Organização de páginas
     def render(self,page):
        content = self.pages.get(page, self.helper)
        return content()
-
 
     def helper(self):
         return template('app/views/html/helper')
