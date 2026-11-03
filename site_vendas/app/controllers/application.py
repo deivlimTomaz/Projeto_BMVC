@@ -1,11 +1,12 @@
-from bottle import template
+from bottle import template # Carrega o arquivo em TLP e o converte para html
 
 
-class Application():
+class Application(): # Organização de páginas
 
     def __init__(self):
         self.pages = {
-            'inicio': self.inicio
+            'inicio': self.inicio,
+            'produtos': self.produtos
         }
 
 
@@ -19,3 +20,6 @@ class Application():
 
     def inicio(self):
         return template('app/views/html/inicio')
+
+    def produtos(self):
+        return template('app/views/html/produtos')

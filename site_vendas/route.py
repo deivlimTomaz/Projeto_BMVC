@@ -23,9 +23,14 @@ def helper(info= None):
 # Suas rotas aqui:
 
 # Página inicial
-@app.route('/inicio', methods=['GET'])
+@app.route('/inicio', methods=['GET']) # Registro de rota na aplicação
 def action_pagina():
-    return ctl.render('inicio')
+    return ctl.render('inicio') # Renderiza o template (ex.: arquivo html/tpl)
+
+# Página de busca de produtos
+@app.route('/produtos', methods=['GET'])
+def action_pagina():
+    return ctl.render('produtos')
 
 #-----------------------------------------------------------------------------
 
