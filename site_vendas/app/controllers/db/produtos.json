@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "nome": "Shampoo",
+        "categoria": "Capilares",
+        "preco": 30.0,
+        "estoque": 5
+    },
+    {
+        "id": 2,
+        "nome": "Condicionador",
+        "categoria": "Capilares",
+        "preco": 35.9,
+        "estoque": 10
+    }
+]
