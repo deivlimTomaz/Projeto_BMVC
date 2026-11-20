@@ -1,16 +1,16 @@
 [
     {
-        "id": 1,
-        "nome": "Shampoo",
-        "categoria": "Capilares",
-        "preco": 30.0,
-        "estoque": 5
+        "id": 3,
+        "nome": "Creme Facial",
+        "categoria": "Cuidados",
+        "preco": 45.9,
+        "estoque": 20
     },
     {
-        "id": 2,
-        "nome": "Condicionador",
-        "categoria": "Capilares",
-        "preco": 35.9,
+        "id": 4,
+        "nome": "Sabonete",
+        "categoria": "Cuidados",
+        "preco": 5.99,
         "estoque": 10
     }
 ]
