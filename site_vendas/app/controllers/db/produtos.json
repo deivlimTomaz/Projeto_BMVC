@@ -1,23 +1,16 @@
 [
     {
         "id": 3,
-        "nome": "Creme Facial",
+        "nome": "Creme",
         "categoria": "Cuidados",
         "preco": 45.9,
-        "estoque": 20
-    },
-    {
-        "id": 4,
-        "nome": "Sabonete",
-        "categoria": "Cuidados",
-        "preco": 5.99,
         "estoque": 10
     },
     {
-        "id": 5,
-        "nome": "Perfume",
+        "id": 6,
+        "nome": "Sabonete",
         "categoria": "Cuidados",
-        "preco": 100.0,
+        "preco": 5.0,
         "estoque": 10
     }
 ]
