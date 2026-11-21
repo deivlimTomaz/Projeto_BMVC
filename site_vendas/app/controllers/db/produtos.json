@@ -12,5 +12,12 @@
         "categoria": "Cuidados",
         "preco": 5.99,
         "estoque": 10
+    },
+    {
+        "id": 5,
+        "nome": "Perfume",
+        "categoria": "Cuidados",
+        "preco": 100.0,
+        "estoque": 10
     }
 ]

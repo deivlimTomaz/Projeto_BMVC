@@ -1,4 +1,6 @@
 
+/* CONFIGURAÇÕES GERAIS */
+
 * {
     box-sizing: border-box;
 }
@@ -8,14 +10,18 @@ body {
     min-height: 100vh;
     font-family: Arial, sans-serif;
     color: #2b1a10;
+
     background: linear-gradient(
         to bottom,
         #CE5937 0%,
         #FFFFFF 50%,
         #BF8E35 100%
     );
+
     background-attachment: fixed;
 }
+
+/* CABEÇALHO */
 
 header {
     background: #2b1a10;
@@ -44,41 +50,41 @@ nav a:hover {
     text-decoration: underline;
 }
 
+/* CONTEÚDO PRINCIPAL */
+
 main {
-    max-width: 1150px;
+    max-width: 1450px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
 section {
     background: rgba(255, 255, 255, 0.96);
-    padding: 28px;
+    padding: 28px 35px;
     margin-bottom: 30px;
-    border-radius: 14px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.15);
 }
 
 h2 {
     margin-top: 0;
+    margin-bottom: 24px;
     color: #6b321f;
 }
 
-form {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: end;
-    gap: 12px;
-}
+/* CAMPOS E BOTÕES GERAIS */
 
 label {
     font-weight: bold;
 }
 
 input {
-    padding: 10px;
+    padding: 11px 12px;
     border: 1px solid #b7a59b;
-    border-radius: 6px;
-    font-size: 14px;
+    border-radius: 7px;
+    font-size: 15px;
     min-width: 0;
 }
 
@@ -88,18 +94,68 @@ input:focus {
 }
 
 button {
-    padding: 11px 18px;
+    padding: 11px 20px;
     background: #8b451f;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 7px;
+
     cursor: pointer;
+    font-size: 14px;
     font-weight: bold;
+
+    transition: background 0.2s;
 }
 
 button:hover {
     background: #5c2c19;
 }
+
+/* FORMULÁRIO DE CADASTRO */
+
+.form-cadastro {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+    align-items: end;
+}
+
+.form-cadastro .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.form-cadastro .campo label {
+    font-size: 15px;
+}
+
+.form-cadastro .campo input {
+    width: 100%;
+}
+
+.botao-cadastrar {
+    grid-column: 1 / -1;
+    justify-self: start;
+
+    min-width: 130px;
+    margin-top: 4px;
+}
+
+/* BUSCA DE PRODUTOS */
+
+.busca-produto {
+    display: block;
+    width: 100%;
+    max-width: 525px;
+    margin-bottom: 22px;
+}
+
+/* TABELA DE PRODUTOS */
 
 .tabela-container {
     width: 100%;
@@ -112,7 +168,8 @@ table {
     background: white;
 }
 
-th, td {
+th,
+td {
     padding: 14px;
     border-bottom: 1px solid #ddd;
     text-align: left;
@@ -128,67 +185,142 @@ tbody tr:hover {
     background: #f7eee8;
 }
 
-td form {
-    margin-top: 10px;
+/* COLUNA DE AÇÕES */
+
+.coluna-acoes {
+    min-width: 180px;
+    width: 220px;
 }
 
 details {
-    min-width: 180px;
+    width: 100%;
 }
 
 summary {
     cursor: pointer;
     font-weight: bold;
     color: #8b451f;
+    padding: 6px 0;
 }
 
-details form {
+summary:hover {
+    text-decoration: underline;
+}
+
+/* FORMULÁRIO DE EDIÇÃO */
+
+.form-edicao {
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 12px 0;
+
+    gap: 9px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.form-edicao input {
+    width: 100%;
+}
+
+.botao-salvar {
+    margin-top: 5px;
+}
+
+/* FORMULÁRIO DE EXCLUSÃO */
+
+.form-excluir {
+    margin-top: 12px;
 }
 
 .botao-excluir {
     background: #a52a2a;
+    width: 100%;
 }
 
 .botao-excluir:hover {
     background: #751b1b;
 }
 
-.busca-produto {
-    display: block;
-    width: 100%;
-    max-width: 420px;
-    margin-bottom: 20px;
-}
+/* MENSAGENS */
 
 .mensagem-vazia {
     color: #666;
     font-style: italic;
+    margin-top: 16px;
 }
 
-@media (max-width: 768px) {
+[hidden] {
+    display: none !important;
+}
+
+/* RESPONSIVIDADE: TABLETS */
+
+@media (max-width: 900px) {
+
+    .form-cadastro {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    main {
+        margin: 25px auto;
+    }
+
+    section {
+        padding: 24px;
+    }
+}
+
+/* RESPONSIVIDADE: CELULARES */
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
     main {
         margin: 20px auto;
+        padding: 0 12px;
     }
 
     section {
         padding: 18px;
     }
 
-    form {
-        flex-direction: column;
-        align-items: stretch;
+    h2 {
+        font-size: 22px;
     }
 
-    th, td {
+    .form-cadastro {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .botao-cadastrar {
+        width: 100%;
+    }
+
+    th,
+    td {
         padding: 10px;
         font-size: 13px;
     }
-}
 
-[hidden] {
-    display: none !important;
+    .coluna-acoes {
+        min-width: 160px;
+    }
+
+    .busca-produto {
+        max-width: 100%;
+    }
 }
