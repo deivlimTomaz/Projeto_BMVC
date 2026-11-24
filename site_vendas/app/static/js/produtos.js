@@ -1,53 +1,20 @@
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const campoBusca = document.getElementById("buscar-produto");
-    const linhas = document.querySelectorAll(".linha-produto");
-    const mensagemBusca = document.getElementById("sem-resultados");
-
-    // Filtra produtos pelo nome ou categoria
-    if (campoBusca) {
-        campoBusca.addEventListener("input", () => {
-            const termo = campoBusca.value.trim().toLowerCase();
-            let encontrados = 0;
-
-            linhas.forEach(linha => {
-                const nome = linha.dataset.nome;
-                const categoria = linha.dataset.categoria;
-
-                const corresponde =
-                    nome.includes(termo) ||
-                    categoria.includes(termo);
-
-                linha.hidden = !corresponde;
-
-                if (corresponde) {
-                    encontrados++;
-                }
-            });
-
-            if (mensagemBusca) {
-                mensagemBusca.hidden = encontrados > 0;
-            }
-        });
+document.addEventListener('DOMContentLoaded', () => {
+  const busca = document.querySelector('#buscar-produto');
+  const linhas = [...document.querySelectorAll('.linha-produto')];
+  const aviso = document.querySelector('#sem-resultados');
+  if (busca) busca.addEventListener('input', () => {
+    const termo = busca.value.trim().toLocaleLowerCase('pt-BR');
+    let visiveis = 0;
+    for (const linha of linhas) {
+      const mostra = linha.dataset.nome.includes(termo) || linha.dataset.categoria.includes(termo);
+      linha.hidden = !mostra;
+      if (mostra) visiveis++;
     }
-
-    // Confirma a exclusão antes de enviar o formulário
-    const formulariosExclusao =
-        document.querySelectorAll(".form-excluir");
-
-    formulariosExclusao.forEach(formulario => {
-        formulario.addEventListener("submit", evento => {
-            const nome = formulario.dataset.nome;
-
-            const confirmado = window.confirm(
-                `Deseja realmente excluir o produto "${nome}"?`
-            );
-
-            if (!confirmado) {
-                evento.preventDefault();
-            }
-        });
+    if (aviso) aviso.hidden = visiveis !== 0;
+  });
+  for (const formulario of document.querySelectorAll('.form-excluir')) {
+    formulario.addEventListener('submit', evento => {
+      if (!window.confirm(`Excluir o produto "${formulario.dataset.nome}"?`)) evento.preventDefault();
     });
-
+  }
 });

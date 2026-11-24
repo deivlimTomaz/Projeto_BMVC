@@ -1,14 +1,26 @@
-# Cache do Python
+# Python
 __pycache__/
 *.pyc
 *.pyo
 
-# Ambientes virtuais
+# Ambiente virtual
 venv/
 .venv/
 
+# Variáveis de ambiente e segredos
+.env
+.env.*
+
 # Cache de testes
 .pytest_cache/
+.coverage
 
-# Configurações locais
-.env
+# Arquivos temporários
+*.log
+*.tmp
+
+# Dados de usuários
+**/db/usuarios.json
+
+# Sessões, caso sejam persistidas em arquivos
+**/db/sessoes.json
