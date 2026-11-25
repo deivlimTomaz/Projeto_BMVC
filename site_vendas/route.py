@@ -14,12 +14,33 @@ COOKIE = 'bmvc_sessao'
 
 
 def sessao():
+    # Reutiliza a sessão já identificada nesta requisição.
+    sessao_atual = request.environ.get('bmvc.sessao')
+
+    if sessao_atual is not None:
+        return sessao_atual
+
+    # Recupera a sessão armazenada no cookie.
     token = request.get_cookie(COOKIE)
     dados = sessoes.obter(token)
+
+    # Cria uma sessão caso não exista uma válida.
     if dados is None:
         token = sessoes.criar()
         dados = sessoes.obter(token)
-        response.set_cookie(COOKIE, token, httponly=True, samesite='Strict', secure=os.getenv('BMVC_HTTPS') == '1', path='/')
+
+        response.set_cookie(
+            COOKIE,
+            token,
+            httponly=True,
+            samesite='Strict',
+            secure=os.getenv('BMVC_HTTPS') == '1',
+            path='/'
+        )
+
+    # Mantém uma única sessão durante toda a requisição.
+    request.environ['bmvc.sessao'] = (token, dados)
+
     return token, dados
 
 
@@ -89,8 +110,8 @@ def produtos():
 
 
 def dados_produto():
-    nome = request.forms.get('nome', '')
-    categoria = request.forms.get('categoria', '')
+    nome = request.forms.getunicode('nome', '')
+    categoria = request.forms.getunicode('categoria', '')
     preco_texto = request.forms.get('preco', '').strip().replace(',', '.')
     estoque_texto = request.forms.get('estoque', '').strip()
     return nome, categoria, float(preco_texto), int(estoque_texto)
