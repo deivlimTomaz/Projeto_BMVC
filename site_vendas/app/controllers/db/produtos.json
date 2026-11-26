@@ -7,17 +7,17 @@
     "estoque": 10
   },
   {
-    "id": 2,
-    "nome": "Creme Hórus",
-    "categoria": "Cuidados da pele",
-    "preco": 25.0,
-    "estoque": 10
-  },
-  {
     "id": 3,
     "nome": "Óleo Hidradante",
     "categoria": "Hidratação",
     "preco": 30.0,
     "estoque": 5
+  },
+  {
+    "id": 4,
+    "nome": "Shampoo",
+    "categoria": "Cabelos",
+    "preco": 30.0,
+    "estoque": 10
   }
 ]
